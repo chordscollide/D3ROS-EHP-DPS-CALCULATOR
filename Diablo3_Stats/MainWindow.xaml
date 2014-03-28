@@ -1,0 +1,78 @@
+﻿<Window x:Class="Diablo3_Stats.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Diablo 3: RoS EHP / DPS Calculator" Height="388" Width="518" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Left" Height="361" VerticalAlignment="Top" Width="520" Margin="0,0,-10,-4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="491*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Level" HorizontalAlignment="Left" Margin="15,12,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="LEVEL" HorizontalAlignment="Left" Height="23" Margin="89,15,0,0" TextWrapping="Wrap" Text="70" VerticalAlignment="Top" Width="58" TextAlignment="Right" IsEnabled="False" />
+        <TextBox x:Name="LIFE" HorizontalAlignment="Left" Height="23" Margin="89,41,0,0" TextWrapping="Wrap" Text="0.00%" VerticalAlignment="Top" Width="58" TextAlignment="Right"  />
+        <Label Content="Life Bonus%" HorizontalAlignment="Left" Margin="15,38,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="VITALITY" HorizontalAlignment="Left" Height="23" Margin="89,68,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Vitality" HorizontalAlignment="Left" Margin="15,64,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ARMOR" HorizontalAlignment="Left" Height="23" Margin="89,94,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Armor" HorizontalAlignment="Left" Margin="15,90,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="DODGE" HorizontalAlignment="Left" Height="23" Margin="89,122,0,0" TextWrapping="Wrap" Text="0.00%" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Dodge%" HorizontalAlignment="Left" Margin="15,119,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="BLOCK" HorizontalAlignment="Left" Height="23" Margin="89,148,0,0" TextWrapping="Wrap" Text="0.00%" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Block%" HorizontalAlignment="Left" Margin="15,145,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="BLOCKLO" HorizontalAlignment="Left" Height="23" Margin="89,174,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Block Low" HorizontalAlignment="Left" Margin="15,171,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="BLOCKHI" HorizontalAlignment="Left" Height="23" Margin="89,200,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Block High" HorizontalAlignment="Left" Margin="15,197,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PHYS" HorizontalAlignment="Left" Height="23" Margin="226,40,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Physical" HorizontalAlignment="Left" Margin="152,37,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="COLD" HorizontalAlignment="Left" Height="23" Margin="226,67,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Cold" HorizontalAlignment="Left" Margin="152,63,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="FIRE" HorizontalAlignment="Left" Height="23" Margin="226,93,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Fire" HorizontalAlignment="Left" Margin="152,89,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="LIGHT" HorizontalAlignment="Left" Height="23" Margin="226,118,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Lightning" HorizontalAlignment="Left" Margin="152,115,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="POIS" HorizontalAlignment="Left" Height="23" Margin="226,144,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Poison" HorizontalAlignment="Left" Margin="152,141,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="HOLY" HorizontalAlignment="Left" Height="23" Margin="226,170,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right"/>
+        <Label Content="Arcane" HorizontalAlignment="Left" Margin="152,167,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ALLRES" HorizontalAlignment="Left" Height="23" Margin="226,198,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right" IsEnabled="False"/>
+        <Label Content="Avg Resist" HorizontalAlignment="Left" Margin="152,195,0,0" VerticalAlignment="Top"/>
+        <Button Content="Calculate EHP" HorizontalAlignment="Left" Margin="137,238,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <TextBox x:Name="ARMORDR" HorizontalAlignment="Left" Height="23" Margin="89,267,0,0" TextWrapping="Wrap" Text="0%" VerticalAlignment="Top" Width="58" TextAlignment="Right" IsReadOnly="True"/>
+        <Label Content="Armor DR" HorizontalAlignment="Left" Margin="15,264,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ALLRESDR" HorizontalAlignment="Left" Height="23" Margin="226,265,0,0" TextWrapping="Wrap" Text="0%" VerticalAlignment="Top" Width="58" TextAlignment="Right" IsReadOnly="True"/>
+        <Label Content="Resist DR" HorizontalAlignment="Left" Margin="155,264,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="MAXHP" HorizontalAlignment="Left" Height="23" Margin="89,293,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" TextAlignment="Right" IsReadOnly="True"/>
+        <Label Content="Max HP" HorizontalAlignment="Left" Margin="20,290,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ALLDR" HorizontalAlignment="Left" Height="23" Margin="226,291,0,0" TextWrapping="Wrap" Text="0%" VerticalAlignment="Top" Width="58" TextAlignment="Right" IsReadOnly="True" />
+        <Label Content="Total DR" HorizontalAlignment="Left" Margin="155,290,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TOUGHNESS" HorizontalAlignment="Left" Height="23" Margin="185,320,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="65" TextAlignment="Right" IsReadOnly="True"/>
+        <Label Content="Toughness (EHP)" HorizontalAlignment="Left" Margin="82,317,0,0" VerticalAlignment="Top"/>
+        <Label Content="Paragon" HorizontalAlignment="Left" Margin="382,15,0,0" VerticalAlignment="Top" Width="55" FontWeight="Bold"/>
+        <Label Content="Defense" HorizontalAlignment="Left" Margin="385,45,0,0" VerticalAlignment="Top" Width="55"/>
+        <Label Content="Life%" HorizontalAlignment="Left" Margin="341,65,0,0" VerticalAlignment="Top" Width="55"/>
+        <TextBox x:Name="PLIFE" HorizontalAlignment="Left" Height="20" Margin="350,89,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="21" TextAlignment="Right" />
+        <Label Content="Armor%" HorizontalAlignment="Left" Margin="390,65,0,0" VerticalAlignment="Top" Width="55"/>
+        <Label Content="ResAll" HorizontalAlignment="Left" Margin="445,66,0,0" VerticalAlignment="Top" Width="55"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="371,89,0,0" VerticalAlignment="Top" Width="10" Click="Plife_PlusOne"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="341,89,0,0" VerticalAlignment="Top" Width="10" Click="Plife_MinusOne"/>
+        <TextBox x:Name="PARMOR" HorizontalAlignment="Left" Height="20" Margin="402,89,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="21" TextAlignment="Right" />
+        <Button Content="+" HorizontalAlignment="Left" Margin="423,89,0,0" VerticalAlignment="Top" Width="10" Click="Parmor_PlusOne"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="393,89,0,0" VerticalAlignment="Top" Width="10" Click="Parmor_MinusOne"/>
+        <TextBox x:Name="PRESALL" HorizontalAlignment="Left" Height="20" Margin="454,89,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="21" TextAlignment="Right" />
+        <Button Content="+" HorizontalAlignment="Left" Margin="475,89,0,0" VerticalAlignment="Top" Width="10" Click="Presall_PlusOne"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="445,89,0,0" VerticalAlignment="Top" Width="10" Click="Presall_MinusOne"/>
+        <Label Content="Points" HorizontalAlignment="Left" Margin="296,86,0,0" VerticalAlignment="Top" Width="45"/>
+        <Label Content="Stats" HorizontalAlignment="Left" Margin="296,112,0,0" VerticalAlignment="Top" Width="55"/>
+        <TextBox x:Name="PLIFEPERCENT" HorizontalAlignment="Left" Height="20" Margin="341,115,0,0" TextWrapping="Wrap" Text="0%" VerticalAlignment="Top" Width="40" TextAlignment="Right" IsReadOnly="True"/>
+        <TextBox x:Name="PARMORPERCENT" HorizontalAlignment="Left" Height="20" Margin="393,115,0,0" TextWrapping="Wrap" Text="0%" VerticalAlignment="Top" Width="40" TextAlignment="Right" IsReadOnly="True"/>
+        <TextBox x:Name="PRESALLSTAT" HorizontalAlignment="Left" Height="20" Margin="445,115,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextAlignment="Right" IsReadOnly="True"/>
+        <Label Content="EHP PP" HorizontalAlignment="Left" Margin="296,138,0,0" VerticalAlignment="Top" Width="55"/>
+        <TextBox x:Name="PLIFEEHP" HorizontalAlignment="Left" Height="20" Margin="341,141,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextAlignment="Right" IsReadOnly="True"/>
+        <TextBox x:Name="PARMOREHP" HorizontalAlignment="Left" Height="20" Margin="393,141,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextAlignment="Right" IsReadOnly="True"/>
+        <TextBox x:Name="PRESALLEHP" HorizontalAlignment="Left" Height="20" Margin="445,141,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextAlignment="Right" IsReadOnly="True"/>
+        <Label Content="*Do not include any stats from Paragon on this side." HorizontalAlignment="Left" Margin="10,-6,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>
