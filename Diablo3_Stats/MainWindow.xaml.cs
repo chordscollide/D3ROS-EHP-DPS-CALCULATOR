@@ -42,6 +42,8 @@ namespace Diablo3_Stats {
       double poisres;
       double holyres;
       int toughness;
+      int mitigation;
+      double spikiness;
 
     public MainWindow() {
       InitializeComponent();
@@ -88,6 +90,7 @@ namespace Diablo3_Stats {
 
       //DR
       double dr = 1 - ((1 - dodge / 100) * (1 - armordr) * (1 - resistdr));
+      double mit = 1 - ((1 - armordr) * (1 - resistdr));
       double drp = 1 - ((1 - dodge / 100) * (1 - armordrp) * (1 - resistdr));
       double drr = 1 - ((1 - dodge / 100) * (1 - armordr) * (1 - resistdrp));
 
@@ -101,13 +104,17 @@ namespace Diablo3_Stats {
       MAXHP.Text = Convert.ToString(life);
       ALLDR.Text = Convert.ToString(Math.Round(dr * 10000) / 100) + "%";
       toughness = (int)(Math.Floor((life + shield) / (1 - dr)));
+      mitigation = (int)(Math.Floor((life) / (1 - mit)));
+      spikiness = Math.Round((1 - (double)mitigation / (double)toughness) * 10000) / 10000;
       int pltoughness = (int)(Math.Floor((lifep + shield) / (1 - dr)));
       int patoughness = (int)(Math.Floor((life + shield) / (1 - drp)));
       int pratoughness = (int)(Math.Floor((life + shield) / (1 - drr)));
       PARMOREHP.Text = Convert.ToString(patoughness - toughness);
       PLIFEEHP.Text = Convert.ToString(pltoughness - toughness);
       PRESALLEHP.Text = Convert.ToString(pratoughness - toughness);
+      MITIGATION.Text = Convert.ToString(mitigation);
       TOUGHNESS.Text = Convert.ToString(toughness);
+      SPIKE.Text = Convert.ToString(spikiness * 100) + "%";
     }
 
     private void Button_Click(object sender, RoutedEventArgs e) {
